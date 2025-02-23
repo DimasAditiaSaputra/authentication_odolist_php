@@ -1,0 +1,17 @@
+{
+    "name": "dimas/todolist_php",
+    "description": "\"todolist autentikasi\"",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Dimas\\TodolistPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dimas Aditia Saputra",
+            "email": "dimasaditiasaputra122@gmail.com"
+        }
+    ],
+    "require": {}
+}
