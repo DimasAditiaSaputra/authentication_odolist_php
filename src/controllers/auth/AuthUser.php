@@ -47,11 +47,13 @@ class AuthUser{
         }
     }
 
-     public function logout(): void {
-        session_start();
+   public function logout(): void {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         session_unset();
         session_destroy();
-        header('Location: /login.php');
+        header('Location: http://localhost:8080/view/auth/login.php');
         exit;
     }
 

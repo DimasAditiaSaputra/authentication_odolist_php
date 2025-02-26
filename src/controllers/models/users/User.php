@@ -27,11 +27,24 @@ class User {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createUser(){}
+    public function createAccount(
+        string $uuid, 
+        string $username, 
+        string $gmail, 
+        string $password): void{
+            $sql = "INSERT INTO users(uuid, username, gmail, password) VALUES(?,?,?,?)"; 
+            $stmt = self::db()->prepare($sql);
+            $stmt->bindParam("uuid", $uuid);
+            $stmt->bindParam("username", $username);
+            $stmt->bindParam("gmail", $gmail);
+            $stmt->bindParam("password", $password);
+            $stmt->execute([$uuid, $username, $gmail, $password]);
+    }
 }
 
-$db = new User();
-var_dump($db->db());
-// var_dump($db->getAllUsers());
-var_dump($db->getUserById(1));
+// $db = new User();
+// var_dump($db->db());
+// // var_dump($db->getAllUsers());
+// var_dump($db->getUserById(1));
+
 ?>
